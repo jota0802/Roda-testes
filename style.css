@@ -1,0 +1,136 @@
+/* Continua Regular - Headers */
+@font-face {
+    font-family: 'Continua';
+    src: url('{{ "Continua-Regular.woff2" | asset_url }}') format('woff2'),
+         url('{{ "Continua-Regular.woff" | asset_url }}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* GT America Regular - Body */
+@font-face {
+    font-family: 'GT-America-Regular';
+    src: url('{{ "GT-America-Regular.woff2" | asset_url }}') format('woff2'),
+         url('{{ "GT-America-Regular.woff" | asset_url }}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* GT America Bold - Body Bold */
+@font-face {
+    font-family: 'GT-America-Bold';
+    src: url('{{ "GT-America-Bold.woff2" | asset_url }}') format('woff2'),
+         url('{{ "GT-America-Bold.woff" | asset_url }}') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Aplicação das fontes */
+body {
+    font-family: 'GT-America-Regular', sans-serif;
+}
+
+body b, body strong {
+    font-family: 'GT-America-Bold', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Continua', sans-serif;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  /* color used to softly clip top and bottom of the .words container */
+  --bg-color: #ffffff;
+  background-color: var(--bg-color);
+  margin: 1rem 10rem;
+  padding: 0rem 1rem;
+  border-radius: 1.25rem;
+}
+.loader {
+  color: rgb(124, 124, 124);
+  font-family: "GT-America-Regular", sans-serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 8px;
+}
+
+.words {
+  overflow: hidden;
+  position: relative;
+}
+.words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg-color) 10%,
+    transparent 90%,  /* blur top */
+    transparent 70%,
+    var(--bg-color) 90%
+  );
+  z-index: 20;
+  margin: 20px;
+}
+
+.word {
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: #0662b8;
+  animation: spin_4991 5s infinite;
+  
+}
+
+@keyframes spin_4991 {
+  10% {
+    -webkit-transform: translateY(-102%);
+    transform: translateY(-102%);
+  }
+
+  25% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  35% {
+    -webkit-transform: translateY(-202%);
+    transform: translateY(-202%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+
+  60% {
+    -webkit-transform: translateY(-302%);
+    transform: translateY(-302%);
+  }
+
+  75% {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+  }
+
+  85% {
+    -webkit-transform: translateY(-402%);
+    transform: translateY(-402%);
+  }
+
+  100% {
+    -webkit-transform: translateY(-400%);
+    transform: translateY(-400%);
+  }
+}
+  

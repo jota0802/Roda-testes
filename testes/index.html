@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrossel Premium</title>
+  <style>
+    body {
+      background: #000000;
+      color: #fff;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+    .carousel-wrapper {
+      position: relative;
+      width: 80%;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 15s linear infinite;
+      gap: 5rem;
+    }
+    .carousel-item {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+    .carousel-item:hover {
+      opacity: 1;
+    }
+    .fade-left, .fade-right {
+      position: absolute;
+      top: 0;
+      width: 10%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .fade-left {
+      left: 0;
+      background: linear-gradient(to right, #0d0d0d, transparent);
+    }
+    .fade-right {
+      right: 0;
+      background: linear-gradient(to left, #0d0d0d, transparent);
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-10%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel-wrapper">
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+    <div class="carousel-track">
+      <div class="carousel-item">tradição</div>
+      <div class="carousel-item">energia</div>
+      <div class="carousel-item">paixão</div>
+      <div class="carousel-item">qualidade</div>
+      <!-- Duplicado para o loop infinito -->
+      <div class="carousel-item">tradição</div>
+      <div class="carousel-item">energia</div>
+      <div class="carousel-item">paixão</div>
+      <div class="carousel-item">qualidade</div>
+        <!-- Duplicado para o loop infinito -->
+      <div class="carousel-item">tradição</div>
+      <div class="carousel-item">energia</div>
+      <div class="carousel-item">paixão</div>
+      <div class="carousel-item">qualidade</div>
+    </div>
+  </div>
+</body>
+</html>
