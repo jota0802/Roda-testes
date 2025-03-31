@@ -5,19 +5,11 @@
     box-sizing: border-box;
   }
   
-  /* Estilos gerais */
-  body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    height: 100vh;
-  }
-  
+  /* Container principal centralizado */
   .intro-container {
     text-align: center;
     max-width: 90%;
+    margin: 0 auto; /* centraliza horizontalmente */
     padding: 1rem;
   }
   
@@ -33,11 +25,7 @@
     line-height: 1.1;
   }
   
-  /*
-     Container da palavra animada:
-     - min-width: 10ch garante uma largura mínima para a palavra (ajuste conforme necessário)
-     - height e line-height definidos em 1em para que fiquem proporcionais à fonte da descrição.
-  */
+  /* Container da palavra animada */
   .word-container {
     display: inline-block;
     position: relative;
@@ -47,7 +35,6 @@
     line-height: 1em;
     overflow: hidden;
     vertical-align: bottom;
-    text-align: start;
   }
   
   /* Cada palavra inicia fora da área (abaixo) */
@@ -74,7 +61,7 @@
     opacity: 0;
   }
   
-  /* Responsividade: reduz proporcionalmente em telas menores */
+  /* Responsividade: ajusta tamanhos em telas menores */
   @media (max-width: 1024px) {
     .intro-title {
       font-size: 5rem;
@@ -99,7 +86,6 @@
     }
     .intro-text {
       font-size: 1.75rem;
-      text-align: start;
     }
   }
   

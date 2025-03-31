@@ -1,5 +1,5 @@
-// Array com as palavras para animação
-const words = ["qualidade", "excelência", "energia", "tradição", "sabor"];
+// Array com as palavras para a animação
+const words = ["qualidade", "excelência", "inovação", "tradição", "sabor"];
 let currentIndex = 0;
 const container = document.querySelector('.word-container');
 
@@ -13,18 +13,18 @@ function showWord(newWord) {
   newSpan.textContent = newWord;
   container.appendChild(newSpan);
 
-  // Força o reflow para garantir que a transição ocorra
+  // Força o reflow para disparar a transição
   newSpan.getBoundingClientRect();
 
-  // Anima a nova palavra para ficar visível
+  // Ativa a nova palavra para que deslize para a posição visível
   newSpan.classList.add('active');
 
-  // Anima a palavra anterior para sair
+  // Procura por uma palavra anterior ativa para animar sua saída
   const oldWord = container.querySelector('.word.active:not(:last-child)');
   if (oldWord) {
     oldWord.classList.remove('active');
     oldWord.classList.add('exit');
-    // Remove o elemento antigo após o término da transição
+    // Remove o elemento antigo após a transição
     setTimeout(() => {
       oldWord.remove();
     }, 500);
@@ -32,7 +32,7 @@ function showWord(newWord) {
 }
 
 /**
- * Troca as palavras de forma periódica.
+ * Troca as palavras periodicamente.
  */
 function rotateWords() {
   showWord(words[currentIndex]);
@@ -42,5 +42,5 @@ function rotateWords() {
 // Inicializa com a primeira palavra
 rotateWords();
 
-// Troca a cada 3 segundos (ajuste conforme desejar)
+// Troca a cada 3 segundos
 setInterval(rotateWords, 3000);
