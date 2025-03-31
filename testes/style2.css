@@ -1,0 +1,105 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos gerais */
+  body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .intro-container {
+    text-align: center;
+    max-width: 90%;
+    padding: 1rem;
+  }
+  
+  /* Título com 6rem */
+  .intro-title {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Descrição com 3rem */
+  .intro-text {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+  
+  /*
+     Container da palavra animada:
+     - min-width: 10ch garante uma largura mínima para a palavra (ajuste conforme necessário)
+     - height e line-height definidos em 1em para que fiquem proporcionais à fonte da descrição.
+  */
+  .word-container {
+    display: inline-block;
+    position: relative;
+    min-width: 10ch;
+    white-space: nowrap;
+    height: 1em;
+    line-height: 1em;
+    overflow: hidden;
+    vertical-align: bottom;
+    text-align: start;
+  }
+  
+  /* Cada palavra inicia fora da área (abaixo) */
+  .word {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: #0662b8;
+    font-weight: bold;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+  
+  /* Palavra ativa: na posição correta */
+  .word.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Palavra que sai: desliza para cima */
+  .word.exit {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  /* Responsividade: reduz proporcionalmente em telas menores */
+  @media (max-width: 1024px) {
+    .intro-title {
+      font-size: 5rem;
+    }
+    .intro-text {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .intro-title {
+      font-size: 4rem;
+    }
+    .intro-text {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .intro-title {
+      font-size: 3rem;
+    }
+    .intro-text {
+      font-size: 1.75rem;
+      text-align: start;
+    }
+  }
+  

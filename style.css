@@ -37,30 +37,42 @@ body b, body strong {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Continua', sans-serif;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+.intro-titulo {
+  font-size: 6rem;
+}
+
+.intro-desc {
+  font-size: 4rem;
+  color: rgb(124, 124, 124);  
+}
+
+.intro-animacao {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* ---------- Parte Animacao -------------  */
 .card {
-  /* color used to softly clip top and bottom of the .words container */
-  --bg-color: #ffffff;
+  /* cor utilizada para suavizar os topos e fundos do container .words */
+  --bg-color: #FAF9F6;
   background-color: var(--bg-color);
   margin: 1rem 10rem;
   padding: 0rem 1rem;
   border-radius: 1.25rem;
 }
+
 .loader {
-  color: rgb(124, 124, 124);
   font-family: "GT-America-Regular", sans-serif;
   font-weight: 500;
-  font-size: 2.5rem;
-  -webkit-box-sizing: content-box;
+  font-size: 4rem;
   box-sizing: content-box;
-  height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  height: 72px; /* esse anda com o margin do word::after, na proporcao que ta */
   display: flex;
   border-radius: 8px;
 }
@@ -69,68 +81,126 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   position: relative;
 }
+
 .words::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     var(--bg-color) 10%,
-    transparent 90%,  /* blur top */
+    transparent 60%,  /* blur top */
     transparent 70%,
     var(--bg-color) 90%
   );
   z-index: 20;
-  margin: 20px;
+  margin: 40px; /* esse anda com o height do loader, na proporcao que ta */
 }
 
 .word {
   display: block;
   height: 100%;
-  padding-left: 6px;
+  margin-left: 6px;
+  margin-right: 40px; /* esse faz a palavra caber */
+  padding-top: 80px;
   color: #0662b8;
   animation: spin_4991 5s infinite;
-  
 }
 
 @keyframes spin_4991 {
   10% {
-    -webkit-transform: translateY(-102%);
     transform: translateY(-102%);
   }
-
   25% {
-    -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
-
   35% {
-    -webkit-transform: translateY(-202%);
     transform: translateY(-202%);
   }
-
   50% {
-    -webkit-transform: translateY(-200%);
     transform: translateY(-200%);
   }
-
   60% {
-    -webkit-transform: translateY(-302%);
     transform: translateY(-302%);
   }
-
   75% {
-    -webkit-transform: translateY(-300%);
     transform: translateY(-300%);
   }
-
   85% {
-    -webkit-transform: translateY(-402%);
     transform: translateY(-402%);
   }
-
   100% {
-    -webkit-transform: translateY(-400%);
     transform: translateY(-400%);
   }
 }
-  
+
+/* ---------- Media Queries para Responsividade -------------  */
+
+@media (max-width: 1024px) {
+  .intro-titulo {
+    font-size: 4.5rem;
+  }
+  .intro-desc {
+    font-size: 3rem;
+  }
+  .card {
+    margin: 1rem 5rem;
+  }
+  .loader {
+    font-size: 3rem;
+    height: 54px;
+  }
+  .word {
+    padding-top: 60px;
+    margin-right: 30px;
+  }
+  .words::after {
+    margin: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-titulo {
+    font-size: 3.5rem;
+  }
+  .intro-desc {
+    font-size: 2.5rem;
+  }
+  .card {
+    margin: 1rem 2rem;
+  }
+  .loader {
+    font-size: 2.5rem;
+    height: 45px;
+  }
+  .word {
+    padding-top: 50px;
+    margin-right: 20px;
+  }
+  .words::after {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-titulo {
+    font-size: 3rem;
+  }
+  .intro-desc {
+    font-size: 2rem;
+  }
+  .card {
+    margin: 0.5rem 1rem;
+    padding: 0rem 0.5rem;
+  }
+  .loader {
+    font-size: 2rem;
+    height: 40px;
+  }
+  .word {
+    padding-top: 40px;
+    margin-right: 10px;
+  }
+  .words::after {
+    margin: 10px;
+  }
+}
